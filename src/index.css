@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-dark-900 text-white;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-400 to-purple-500 bg-clip-text text-transparent;
+  }
+  
+  .feature-card {
+    @apply p-6 rounded-xl border border-gray-700 bg-gray-800/50 backdrop-blur-sm hover:border-primary-500 transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/25 min-h-[200px] flex flex-col;
+  }
+  
+  .code-block {
+    @apply bg-gray-900 border border-gray-700 rounded-lg p-4 font-mono text-xs relative;
+  }
+
+  .code-block pre {
+    @apply m-0 p-0 whitespace-pre-wrap break-words;
+    background: transparent !important;
+  }
+
+  .code-block code {
+    background: transparent !important;
+    color: #e5e7eb !important;
+    font-size: inherit !important;
+  }
+
+  .code-block::before {
+    content: 'C#';
+    @apply absolute top-2 right-2 text-xs text-gray-500 bg-gray-800 px-2 py-1 rounded z-10;
+  }
+
+  /* Override Prism theme colors for our dark theme */
+  .code-block .token.comment {
+    color: #6b7280 !important;
+  }
+  
+  .code-block .token.keyword {
+    color: #60a5fa !important;
+  }
+  
+  .code-block .token.string {
+    color: #34d399 !important;
+  }
+  
+  .code-block .token.number {
+    color: #fb923c !important;
+  }
+  
+  .code-block .token.class-name,
+  .code-block .token.type {
+    color: #22d3ee !important;
+  }
+
+  .code-block .token.method,
+  .code-block .token.function {
+    color: #a78bfa !important;
+  }
+}
