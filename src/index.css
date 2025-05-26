@@ -5,10 +5,17 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
   
   body {
     @apply bg-dark-900 text-white;
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+  * {
+    box-sizing: border-box;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -29,19 +36,64 @@
     @apply p-6 rounded-xl border border-gray-700 bg-gray-800/50 backdrop-blur-sm hover:border-primary-500 transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/25 min-h-[200px] flex flex-col;
   }
   
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
   .code-block {
-    @apply bg-gray-900 border border-gray-700 rounded-lg p-4 font-mono text-xs relative;
+    @apply bg-gray-900 border border-gray-700 rounded-lg p-4 font-mono text-xs relative overflow-x-auto;
+    max-width: 100%;
+    word-break: break-all;
   }
 
   .code-block pre {
-    @apply m-0 p-0 whitespace-pre-wrap break-words;
+    @apply m-0 p-0;
     background: transparent !important;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-all;
   }
 
   .code-block code {
     background: transparent !important;
     color: #e5e7eb !important;
     font-size: inherit !important;
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+
+  /* Mobile responsive adjustments */
+  @media (max-width: 640px) {
+    .code-block {
+      @apply text-xs p-2;
+    }
+    
+    .code-block code {
+      font-size: 11px !important;
+    }
+    
+    /* Prevent horizontal overflow on all elements */
+    * {
+      max-width: 100vw;
+      word-wrap: break-word;
+    }
+    
+    /* Fix containers */
+    .max-w-7xl {
+      max-width: 100vw !important;
+      padding-left: 1rem !important;
+      padding-right: 1rem !important;
+    }
+    
+    /* Fix grids */
+    .grid {
+      gap: 1rem !important;
+    }
   }
 
   .code-block::before {
