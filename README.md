@@ -15,20 +15,44 @@
 
 This document provides a comprehensive overview of the **OpenRPG Core Framework** and **Darkdom Framework** - two interconnected game development frameworks designed for creating sophisticated multiplayer RPG games.
 
-**OpenRPG** serves as the foundational framework providing core RPG mechanics, while **Darkdom** extends it with faction-based PvP systems and advanced Unity integration.
+**OpenRPG** is an **engine-agnostic C# game framework** that provides foundational RPG mechanics and can integrate with any C# game engine or framework (Unity, MonoGame, Godot, custom engines, etc.). **Darkdom** extends OpenRPG with faction-based PvP systems and includes reference implementations for Unity integration.
 
-### Framework Relationship
+### Framework Architecture
 ```
-Darkdom Framework (Faction-based PvP Layer)
+Any C# Game Engine (Unity, MonoGame, Godot, Custom, etc.)
+    ↓ integrates with
+Darkdom Framework (Faction-based PvP Layer + Engine Adapters)
     ↓ extends
-OpenRPG Core Framework (Base RPG Foundation)
-    ↓ integrates
-Unity Engine (Client Rendering & Input)
+OpenRPG Core Framework (Engine-Agnostic RPG Foundation)
     ↓ connects to
-Network Services (Multiplayer Backend)
+Network Services (Multiplayer Backend + Database)
 ```
+
+### Key Highlights
+
+**🎮 For Game Development:**
+- **Complete RPG Foundation** - No need to build core systems from scratch
+- **Engine Agnostic** - Works with any C# game engine or framework
+- **Faction-Based PvP** - Unique three-faction system creates dynamic gameplay
+- **Scalable Multiplayer** - Architecture supports large player bases
+- **Professional UI Framework** - Advanced UI system with drag-and-drop and serialization
+
+**🛠️ For Developers:**
+- **Modular Architecture** - Interface-driven design for easy extension and customization
+- **Rapid Development** - Pre-built RPG systems dramatically reduce development time
+- **Comprehensive Testing** - Built-in unit testing and simulation frameworks
+- **Visual Editors** - Professional content creation and database management tools
+- **Hot-Reload Capabilities** - Runtime updates for rapid iteration
+
+**⚙️ For Deployment:**
+- **Multi-Server Architecture** - Dedicated Login, World, and Database servers
+- **Built-in Scaling** - Load balancing and multiple world server support
+- **Robust Networking** - Action queuing, synchronization, and reliable communication
+- **Professional Monitoring** - Comprehensive logging, debugging, and performance tools
+- **Battle-Tested Framework** - Proven components ready for production deployment
 
 ---
+
 
 ## OpenRPG Core Framework
 
